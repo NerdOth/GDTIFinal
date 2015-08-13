@@ -1,0 +1,89 @@
+<ui:composition template="/jsf/header.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <ui:define name="Titre">
+        Trimestres
+    </ui:define>
+    <ui:define name="Page">
+       Les trimestres
+    </ui:define>
+    <ui:define name="Page1">
+        Trimestres
+    </ui:define>
+    
+
+    <ui:define name="body">
+<section class="panel">
+            <header class="panel-heading panel-heading-transparent">
+                <div class="panel-actions">
+                    <a href="#" class="fa fa-caret-down"></a>
+
+                </div>
+
+                <h2 class="panel-title">Liste des trimestres</h2>
+            </header>
+            <div class="panel-body">
+
+
+                <h:form>
+                    <h:dataTable value="#{trimestreController.items}" class="table table-striped mb-none" id="datatable-editable" var="item" >
+
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#"/>
+                            </f:facet>
+                            <h:commandLink action="#{trimestreController.prepareView()}" value="#{item.idTrim}" />
+                            
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Date début"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateDebut}">
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Date fin"/>
+                            </f:facet>
+                            
+                            <h:outputText value="#{item.dateFin}">
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Etat"/>
+                            </f:facet>
+                            <h:outputText value="Clôturé" class="label label-success" rendered="#{item.etat==1}"/>
+                            <h:outputText value="En cours" class="label label-warning" rendered="#{item.etat==0}"/>
+                        </h:column>
+
+                        <h:column>
+                            <f:passThroughAttribute name="class" value="actions" />
+
+                            <f:facet name="header">
+                                <h:outputText value="Actions"/>
+                            </f:facet>
+                            <b> </b> 
+                            <h:commandLink  class="on-default edit-row" 
+                                            action="#{trimestreController.prepareEdit}" >
+                                <i class="fa fa-pencil"></i> 
+                            </h:commandLink> <b> </b>
+                        </h:column>
+                    </h:dataTable>
+                </h:form> 
+            </div>
+        </section>
+        
+        
+        
+        
+        
+        
+    </ui:define>
+</ui:composition> 

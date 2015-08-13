@@ -1,0 +1,115 @@
+<ui:composition template="/jsf/header.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <ui:define name="Titre">
+        Accueil
+    </ui:define>
+    <ui:define name="Page">
+        Accueil
+    </ui:define>
+
+
+    <ui:define name="body">
+
+
+
+        <div class="row">
+            <div class="col-md-6 col-lg-6 col-xl-4">
+
+                <h:link outcome="/jsf/personnel/List">
+                <section class="panel panel-featured-left panel-featured-primary">
+                    <div class="panel-body">
+                        <div class="widget-summary widget-summary-md">
+                            <div class="widget-summary-col widget-summary-col-icon">
+                                <div class="summary-icon bg-primary">
+                                    <i class="fa fa-users"></i>
+                                </div>
+                            </div>
+                            <div class="widget-summary-col">
+                                <div class="summary">
+                                    <h3 >Gestion du personnel</h3>
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                </h:link>
+                
+                <h:link outcome="/jsf/jourFeries/List">
+                <section class="panel panel-featured-left panel-featured-primary">
+                    <div class="panel-body">
+                        <div class="widget-summary widget-summary-md">
+                            <div class="widget-summary-col widget-summary-col-icon">
+                                <div class="summary-icon bg-primary">
+                                    <i class="fa fa-cogs"></i>
+                                </div>
+                            </div>
+                            <div class="widget-summary-col">
+                                <div class="summary">
+                                    <h3 >Gestion du calendrier</h3>
+                                    
+                                </div>
+                                <div class="summary-footer">
+                                    <a class="text-muted text-uppercase">(view all)</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                    </h:link>
+            </div>
+            
+            <div class="col-md-6 col-lg-6 col-xl-4">
+                
+                
+                <h:link outcome="/jsf/trimestre/List">
+                <section class="panel panel-featured-left panel-featured-primary">
+                    <div class="panel-body">
+                        <div class="widget-summary widget-summary-md">
+                            <div class="widget-summary-col widget-summary-col-icon">
+                                <div class="summary-icon bg-primary">
+                                    <i class="fa fa-files-o"></i>
+                                </div>
+                            </div>
+                            <div class="widget-summary-col">
+                                <div class="summary">
+                                    <h3>Gestion des ordres de missions</h3>
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                </h:link>
+                
+                <h:link outcome="/jsf/voiture/List">
+                 <section class="panel panel-featured-left panel-featured-primary">
+                    <div class="panel-body">
+                        <div class="widget-summary widget-summary-md">
+                            <div class="widget-summary-col widget-summary-col-icon">
+                                <div class="summary-icon bg-primary">
+                                    <i class="fa fa-cogs"></i>
+                                </div>
+                            </div>
+                            <div class="widget-summary-col">
+                                <div class="summary">
+                                    <h3>Gestion des voitures</h3>
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                </h:link>
+            </div>
+        </div>
+
+    </ui:define>
+</ui:composition> 

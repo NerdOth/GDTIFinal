@@ -1,0 +1,97 @@
+<ui:composition template="/jsf/header.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <ui:define name="Titre">
+        Liste voitures
+    </ui:define>
+    <ui:define name="Page">
+        Liste des voitures
+    </ui:define>
+    <ui:define name="Page1">
+        Liste voitures
+    </ui:define>
+    
+
+    <ui:define name="body">
+
+        <section class="panel  panel-featured panel-featured-primary">
+                        <header class="panel-heading">
+                            <div class="panel-actions">
+                                <a href="#" class="fa fa-caret-down"></a>
+
+                            </div>
+
+                            <h2 class="panel-title">Liste des voitures</h2>
+                        </header>
+                        <div class="panel-body">
+                            
+                               
+                            <h:form>
+                                <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="mb-md">
+                                        <h:commandLink type="button"  class="btn btn-primary" 
+                                                       value="Ajouter"
+                                            action="#{voitureController.linkCreate}" >
+                                            <i class="fa fa-plus"></i> 
+                                        </h:commandLink>
+                                    </div>
+                                </div>
+                            </div>
+                            <h:dataTable value="#{voitureController.items}"  class="table table-bordered table-striped mb-none"  var="item" >
+                         <f:passThroughAttribute name="id" value="datatable-default" />
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Propriétaire"/>
+                            </f:facet>
+                            <h:outputText value="#{item.personne.nom}  #{item.personne.prenom}"/>
+                        </h:column>
+                         <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Matricule"/>
+                            </f:facet>
+                            <h:outputText value="#{item.matricule}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Marque"/>
+                            </f:facet>
+                            <h:outputText value="#{item.marque}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Puissance fiscale"/>
+                            </f:facet>
+                            <h:outputText value="#{item.pf}"/>
+                        </h:column>
+                       
+                        
+                        
+                        
+                         
+                        <h:column>
+                            <f:passThroughAttribute name="class" value="actions" />
+
+                            <f:facet name="header">
+                                <h:outputText value="Actions"/>
+                            </f:facet>
+                           <b> </b>
+                            <h:commandLink  class="on-default edit-row" 
+                                    action="#{voitureController.prepareEdit}" >
+                                    <i class="fa fa-pencil"></i> 
+                            </h:commandLink> <b> </b>
+                            <h:commandLink type="button" class="on-default remove-row" 
+                                    action="#{voitureController.destroy}"
+                                     onclick="if(confirm('Vous voulez vraiment supprimer cette ligne du tableau ?'))return true; else return false;">
+                                    <i class="fa fa-trash-o"></i> 
+                            </h:commandLink>
+                            </h:column>
+                    </h:dataTable>
+                                </h:form> 
+                        </div>
+                    </section>
+    </ui:define>
+</ui:composition> 

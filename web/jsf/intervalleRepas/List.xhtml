@@ -1,0 +1,78 @@
+<ui:composition template="/jsf/header.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <ui:define name="Titre">
+        Horaire repas
+    </ui:define>
+    <ui:define name="Page">
+        Horaire des repas
+    </ui:define>
+    <ui:define name="Page1">
+        Paramétrage
+    </ui:define>
+    <ui:define name="Page2">
+        Horaire repas
+    </ui:define>
+
+    <ui:define name="body">
+
+         <section class="panel  panel-featured panel-featured-primary">
+                        <header class="panel-heading">
+                            <div class="panel-actions">
+                                <a href="#" class="fa fa-caret-down"></a>
+
+                            </div>
+
+                            <h2 class="panel-title">Horaires des repas</h2>
+                        </header>
+                        <div class="panel-body">
+                            
+                               
+                            <h:form>
+                            <h:dataTable value="#{intervalleRepasController.items}"  class="table table-striped mb-none"  var="item" >
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Repas"/>
+                            </f:facet>
+                            <h:outputText value="Repas du soir" rendered="#{item.idRepas==3}"/>
+                            <h:outputText value="Repas de midi" rendered="#{item.idRepas==2}"/>
+                            <h:outputText value="Découcher" rendered="#{item.idRepas==1}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Heure du début"/>
+                            </f:facet>
+                            <h:outputText value="#{item.heureDebut}">
+                                <f:convertDateTime pattern="HH:mm" />
+                                </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Heure de fin"/>
+                            </f:facet>
+                            <h:outputText value="#{item.heureFin}">
+                                <f:convertDateTime pattern="HH:mm" />
+                                </h:outputText>
+                        </h:column>
+                        <h:column>
+                                        <f:passThroughAttribute name="class" value="actions" />
+
+                                        <f:facet name="header">
+                                            <h:outputText value="Actions"/>
+                                        </f:facet>
+                                        <b> </b>
+                                        <h:commandLink  class="on-default edit-row" 
+                                                        action="#{intervalleRepasController.prepareEdit}" >
+                                            <i class="fa fa-pencil"></i> 
+                                        </h:commandLink> 
+                                        
+                                    </h:column>
+                    </h:dataTable>
+                                </h:form> 
+                        </div>
+                    </section>
+    </ui:define>
+</ui:composition> 
